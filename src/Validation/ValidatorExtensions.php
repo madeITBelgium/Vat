@@ -3,6 +3,7 @@
 use MadeITBelgium\Vat\Vat;
 use MadeITBelgium\Vat\Validation\Validator;
 use MadeITBelgium\Vat\ServiceUnavailableException;
+use Exception;
 
 class ValidatorExtensions
 {
@@ -24,6 +25,8 @@ class ValidatorExtensions
             if(isset($parameters[0])) {
                 return $parameters[0] == 'true';
             }
+        } catch(Exception $e) {
+            return false;
         }
         return false;
     }
